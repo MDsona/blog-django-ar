@@ -1,0 +1,17 @@
+
+/*  testing
+.test_static {
+    color: red;
+}
+*/
+
+@font-face {
+    font-family: 'Tajawal';
+    src: url('../fonts/Tajawal-Regular.ttf') format('truetype'),
+        local('Tajawal');
+}
+
+body {
+    font-family: 'Tajawal', 'sans-serif';
+}
+

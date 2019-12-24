@@ -123,9 +123,9 @@ STATIC_URL = '/static/'
 
 # static folder for all project | general
 
-STATICFILES_DIRS = [                       # -2a
-    os.path.join(BASE_DIR, 'static'),
-    'C:/Users/User/Desktop/software engineering/learning/django-github/blogger/src/static'
-]
+# 2e STATICFILES_DIRS = [                       # -2a
+#     os.path.join(BASE_DIR, 'static'),
+#     'C:/Users/User/Desktop/software engineering/learning/django-github/blogger/src/static'
+# ]
 
 
