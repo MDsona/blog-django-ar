@@ -24,3 +24,19 @@ body {
     text-align: right;
 }
 
+.bg-secondary {
+    background-color: #666 !important;
+}
+
+.bg-light {
+    background-color: #CCC !important;
+}
+
+a {
+    color: #666;
+}
+
+
+
+
+

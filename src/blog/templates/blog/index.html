@@ -12,6 +12,11 @@
     </head>
     <body>
 
+        <!-- <div class="test_static lead">   ## test
+            بسم الله الرحمن الرحيم
+            <i class="fas fa-home"></i> hello world agin
+        </div> -->
+
         <header>
             <!-- start navbar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -53,10 +58,93 @@
             <!-- end navbar -->
         </header>
 
-        <div class="test_static lead">
-            بسم الله الرحمن الرحيم
-            <i class="fas fa-home"></i> hello world agin
-        </div>
+        <section>
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-md-8">التدوينات</div>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <h3 class="text-center bg-secondary text-light p-2">
+                                آخر التدوينات
+                            </h3>
+                            <ul>
+                                <li><a href="#">التدوينة الاولى</a></li>
+                                <li><a href="#">التدوينة الثانية</a></li>
+                                <li><a href="#">التدوينة الثالثة</a></li>
+                                <li><a href="#">التدوينة الرابعة</a></li>
+                                <li><a href="#">التدوينة الخامسة</a></li>
+                            </ul>
+                        </div>
+                        <div class="card mb-3">
+                            <h3 class="text-center bg-secondary text-light p-2">
+                                آخر التعليقات
+                            </h3>
+                            <ul>
+                                <li><a href="#">التعليق الاول</a></li>
+                                <li><a href="#">التعليق الثاني</a></li>
+                                <li><a href="#">التعليق الثالث</a></li>
+                                <li><a href="#">التعليق الرابع</a></li>
+                                <li><a href="#">التعليق الخامس</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
+
+        <footer class="bg-secondary">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card-group mt-3">
+                            <div class="card m-3">
+                                <h3 class="card-title text-center border-bottom p-2 m-3">
+                                    من أنا 
+                                </h3>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img src="{% static 'blog/images/mdlogo.png' %}" 
+                                        alt="شعار المدونة" width="100px">
+                                    </div>
+                                    نـــــــــــــــــــــــص تـــــــــريبـــــي
+                                </div>
+                            </div>
+                            <div class="card m-3">
+                                <h3 class="card-title text-center border-bottom p-2 m-3">
+                                    مواقع هامة
+                                </h3>
+                                <div class="card-body">
+                                    <ul>
+                                        <li><a href="#">الموقع الاول</a></li>
+                                        <li><a href="#">الموقع الثاني</a></li>
+                                        <li><a href="#">الموقع الثالث</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card m-3">
+                                <h3 class="card-title text-center border-bottom p-2 m-3">
+                                    وسائل التواصل الاجتماعي
+                                </h3>
+                                <h4 class="card-body text-center">
+                                    <a href="#" class="text-secondary"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="text-secondary"><i class="fab fa-snapchat-ghost"></i></a>
+                                    <a href="#" class="text-secondary"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="text-secondary"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="text-secondary"><i class="fab fa-linkedin-in"></i></a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-md text-center">
+                        <small class="text-light">
+                            &copy; جميع الحقوق محفوظة
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script src="{% static 'blog/js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'blog/js/popper.min.js' %}"></script>
