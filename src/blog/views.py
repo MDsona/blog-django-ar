@@ -25,8 +25,20 @@ posts = [                                                         # -3a
 
 def home(request):                                                  # -2b {'title': 'home'}
     context = {                                                     # -3a
-        'title': 'الصفحة الرئيسية',
+        'page_title': 'الصفحة الرئيسية',
         'posts': posts
     }
     return render(request, 'blog/index.html', context)
+
+
+def about(request):                                                 # -4a
+    context = {
+        'page_title': 'من أنا'
+    }
+
+    return render(request, 'blog/about.html', context)                       # -4a
+
+
+
+
 

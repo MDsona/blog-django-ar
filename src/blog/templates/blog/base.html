@@ -6,6 +6,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% if page_title %}
+            <title>مدونة | {{page_title}}</title>
+        {% else %}
+            <title>مدونة</title>
+        {% endif %}
         <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'blog/css/main.css' %}"> <!--add blog-->
         <link rel="shortcut icon" href="{% static 'blog/images/mdlogo.png' %}">
@@ -32,7 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">     <!-- mr-auto deleted -->
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">الرئيسية<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{% url 'home_url' %}">الرئيسية<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,7 +51,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">من أنا</a>
+                            <a class="nav-link" href="{% url 'about_url' %}">من أنا</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mr-auto">
