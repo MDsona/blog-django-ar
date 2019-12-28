@@ -15,3 +15,7 @@ class Post(models.Model):                                           # -5a
     def __str__(self):                                              # -5c
         return self.title
 
+    class Meta:                                                     # -6b
+        ordering = ('-post_date', )
+
+
