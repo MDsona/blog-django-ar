@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404          # -7b : add 404
 
 from .models import Post                                          # -6a
 
@@ -39,6 +39,16 @@ def about(request):                                                 # -4a
     }
 
     return render(request, 'blog/about.html', context)                       # -4a
+
+
+def post_detail(request, post_id):                          # -7a
+    post= get_object_or_404(Post, pk=post_id)               # -7b
+    context = {
+        'page_title': post,
+        'post': post                                        # -7b
+    }
+
+    return render(request, 'blog/detail.html', context)
 
 
 
