@@ -5,12 +5,19 @@
 
 {% block content %}                     <!--a-->
 
-    <div class="border p-3 mb-4">
+    <div class="border p-3 mb-4">       <!--a-->
         <img src="{% static 'blog/images/icons-user-profile-male.jpg' %}" 
             class="img-fluid rounded-circle border" alt="شعار المدونة" width="50px">
         <span class="text-secondary">نشر في {{ post.post_date|date:'d-m-Y' }}</span>
         <h3 class="text-dark"><a href="#">{{ post.title }}</a></h3>
         <p>{{ post.content }}</p>
+    </div>
+    <div>                               <!--b-->
+        <h2 class="border-bottom">التعليقات</h2>
+        {% for comment in comments %}
+            <small>{{ comment.name }} في {{ comment.cmnt_date|date:'d-m-Y' }}</small>
+            <p>{{ comment.body }}</p>
+        {% endfor %}
     </div>
 
 {% endblock content %}

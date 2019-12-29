@@ -19,3 +19,20 @@ class Post(models.Model):                                           # -5a
         ordering = ('-post_date', )
 
 
+class Comment(models.Model):                                        # -8a
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    body = models.TextField()
+    cmnt_date = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=False)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_cmnt')
+
+    def __str__(self):                                              # -8c
+        return 'علق {} على {}.'.format(self.name, self.post)
+
+    class Meta:                                                     # -8e
+        ordering = ('-cmnt_date', )
+
+
+
+
