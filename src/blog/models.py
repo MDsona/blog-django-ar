@@ -20,9 +20,9 @@ class Post(models.Model):                                           # -5a
 
 
 class Comment(models.Model):                                        # -8a
-    name = models.CharField(max_length=50)
-    email = models.EmailField()
-    body = models.TextField()
+    name = models.CharField(max_length=50, verbose_name='الاسم')    # -9c add arabic word
+    email = models.EmailField(verbose_name='البريد الالكتروني')
+    body = models.TextField(verbose_name='نص التعليق')
     cmnt_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=False)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_cmnt')
