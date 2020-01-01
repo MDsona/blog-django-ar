@@ -25,7 +25,7 @@ class Comment(models.Model):                                        # -8a
     body = models.TextField(verbose_name='نص التعليق')
     cmnt_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=False)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_cmnt')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):                                              # -8c
         return 'علق {} على {}.'.format(self.name, self.post)
