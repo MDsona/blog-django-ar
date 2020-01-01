@@ -45,15 +45,10 @@ def about(request):                                                 # -4a
 def post_detail(request, post_id):                          # -7a
     post = get_object_or_404(Post, pk=post_id)               # -7b
     comments = post.comments.filter(active=True)           # -8d   post.related_name
-    comment_form = NewComment()                             # -9b
-    new_comment = None                                      # -11b
-    context = {
-        'page_title': post,
-        'post': post,                                       # -7b
-        'comments': comments,                              # -8d
-        'comment_form': comment_form,                       # -9b
-    }
-
+    # >< comment_form = NewComment()                             # -9b
+    # >< new_comment = None                                      # -11b
+    
+    # check before save data from comment form
     if request.method == 'POST':                            # -11a
         comment_form = NewComment(data=request.POST)
         if comment_form.is_valid():                         # -11b
@@ -63,6 +58,13 @@ def post_detail(request, post_id):                          # -7a
             comment_form = NewComment()
     else:
         comment_form = NewComment
+    
+    context = {
+        'page_title': post,
+        'post': post,                                       # -7b
+        'comments': comments,                              # -8d
+        'comment_form': comment_form,                       # -9b
+    }
 
     return render(request, 'blog/detail.html', context)
 
