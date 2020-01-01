@@ -43,22 +43,23 @@ a {
 
 /* start sidebar */
 
-.latest_post {
+.latest_post, .latest_comment {
     padding: 0 15px;
 }
 
-.latest_post .latest_post_item {
+.latest_post .latest_post_item, .latest_comment .latest_comment_item {
     padding: 6px;
 }
 
-.latest_post li:first-child {
+.latest_post li:first-child, .latest_comment li:first-child {
     border-top: 0;
 }
 
-.latest_post li:last-child {
+.latest_post li:last-child, .latest_comment li:last-child {
     border-bottom: 0;
     padding-bottom: 0;
 }
+
 
 /* end sidebar */
 
