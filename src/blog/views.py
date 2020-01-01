@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404          # -7b : add 404
 
 from .models import Post, Comment                              # -6a, -8d
+from .forms import NewComment                                   # -9b
 
 # Create your views here.
 
@@ -44,10 +45,12 @@ def about(request):                                                 # -4a
 def post_detail(request, post_id):                          # -7a
     post= get_object_or_404(Post, pk=post_id)               # -7b
     comments = post.post_cmnt.filter(active=True)           # -8d
+    comment_form = NewComment()                             # -9b
     context = {
         'page_title': post,
         'post': post,                                       # -7b
         'comments': comments,                               # -8d
+        'comment_form': comment_form,                       # -9b
     }
 
     return render(request, 'blog/detail.html', context)
