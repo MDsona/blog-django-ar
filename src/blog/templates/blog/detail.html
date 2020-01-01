@@ -47,6 +47,16 @@
         {% endfor %}
 -->
 
+<!-- c -->
+
+<h3 class="border-bottom pb-3 mb-3 mt-5">اضافة تعليق جديد</h3>
+<form method="POST">
+    {% csrf_token %}
+
+    {{comment_form.as_p}}
+    <input class="btn btn-secondary mb-4" type="submit" value="نشر التعليق">
+</form>
+
 {% endblock content %}
 
 
