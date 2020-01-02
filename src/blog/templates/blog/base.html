@@ -1,4 +1,5 @@
 {% load static %}
+{% load post_tag %}                     <!--12c-->
 
 <!DOCTYPE html>
 
@@ -78,13 +79,15 @@
                             <h3 class="text-center bg-secondary text-light p-2">
                                 آخر التدوينات
                             </h3>
-                            {% include 'blog\latest_posts.html' %}          
+                             
+                            {% latest_posts %}                          <!--12c-->
                         </div>
                         <div class="card mb-3">
                             <h3 class="text-center bg-secondary text-light p-2">
                                 آخر التعليقات
                             </h3>
-                            {% include 'blog\latest_comments.html' %}
+                            <!--13c--> {# include 'blog\latest_comments.html' #}      
+                            {% latest_comments %}                          <!--13c-->
                         </div>
                     </div>
                 </div>
