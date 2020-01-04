@@ -2,7 +2,8 @@ from django import forms                # -14a
 from django.contrib.auth.models import User
 
 class UserCreationForm(forms.ModelForm):                                 # -14a
-    username = forms.CharField(label='اسم المستخدم', max_length=30)     # -15a
+    username = forms.CharField(
+        label='اسم المستخدم', max_length=30, help_text='اسم المستخدم يجب الا يحتوي على مسافات')     # -15a
     email = forms.EmailField(label='البريد الالكتروني')
     first_name = forms.CharField(label='الاسم الاول')
     last_name = forms.CharField(label='الاسم الاخير')

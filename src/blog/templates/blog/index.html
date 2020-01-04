@@ -4,7 +4,16 @@
 {% load static %}
 
 {% block content %}                     <!--a-->
-<!-- b <h1>منطقة التدوينات</h1> -->
+
+{% if messages %}                       <!--c-->
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- b <h1>منطقة التدوينات</h1> -->     <!--a-->
 
 {% for post in posts %}                 <!--b-->
     <div class="border p-3 mb-4">
