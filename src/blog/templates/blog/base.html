@@ -55,11 +55,18 @@
                             <a class="nav-link" href="{% url 'about_url' %}">من أنا</a>
                         </li>
                     </ul>
+                    {% if user.is_authenticated %}
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">تدوينة جديدة</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">الملف الشخصي</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout_url' %}">تسجيل خروج</a></li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'login_url' %}">تسجيل دخول</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'register_url' %}">تسجيل</a></li>
                     </ul>
+                    {% endif %}
                 </div>
             </nav>
             <!-- end navbar -->
