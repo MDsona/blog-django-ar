@@ -18,7 +18,7 @@
 {% for post in posts %}                 <!--b-->
     <div class="border p-3 mb-4">
         <img src="{% static 'blog/images/icons-user-profile-male.jpg' %}" 
-            class="img-fluid rounded-circle border" alt="شعار المدونة" width="50px">
+            class="img-fluid rounded-circle border" alt="صورة الناشر" width="50px">
         <span class="text-secondary">نشر في {{ post.post_date|date:'d-m-Y' }}</span> <!-- filter|date -->
         <h3 class="text-dark"><a href="{% url 'detail_url' post.id %}">{{ post.title }}</a></h3> <!-- add url -->
         <p>{{ post.content }}</p>

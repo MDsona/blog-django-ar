@@ -1,0 +1,49 @@
+
+{% extends 'blog/base.html' %}          <!--a-->      
+{% load static %}
+
+{% block content %}                     
+
+<div class="border p-4 mb-5">                                           
+<!-- <h3>{{user.username}}</h3> -->                             <!--a-->
+    <div class="row">                                           <!--b-->
+        <div class="col-md-3 text-center">
+            <img src="{% static 'blog/images/icons-user-profile-male.jpg' %}" 
+            class="img-fluid rounded-circle border" alt="صورة الناشر" width="100px">
+            <div class="mt-3">
+                <a href="" class="btn btn-secondary bg-secondary">تحرير <i class="fas fa-pen fa-xs"></i></a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <h3 class="mb-3">اسم المستخدم</h3>
+            <p class="font-weight-bold">الأسم : <span class="font-weight-normal">محمد سونا علي</span></p>
+            <p class="font-weight-bold">البريد الالكتروني : <span class="font-weight-normal">email@e.com</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md">
+        <h3 class="border-bottom pb-3 mb-3">عدد التدوينات التي دونتها</h3>
+        <h4 class="bg-secondary text-center text-light p-3">21</h4>
+        <h3 class="border-bottom mb-3 pb-3 mt-3">تدويناتي</h3>
+        <ul class="pr-2">
+            <a href="#">عنوان التدوينة</a>
+        </ul>
+        <ul class="pr-2">
+            <a href="#">عنوان التدوينة</a>
+        </ul>
+        <ul class="pr-2">
+            <a href="#">عنوان التدوينة</a>
+        </ul>
+        <div class="border-top pt-3 mt-3 text-center">
+            <a href="#" class="btn btn-secondary bg-secondary">التالي</a>
+            <span class="pr-4 pl-4">صفحة 2 من 8</span>
+            <a href="#" class="btn btn-secondary bg-secondary">السابق</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+

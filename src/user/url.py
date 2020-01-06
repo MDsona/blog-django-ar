@@ -8,4 +8,5 @@ urlpatterns = [
     path('login/', views.login_user, name = 'login_url'),            # -17c
     # 17g path('logout/', LogoutView.as_view(template_name='user/logout.html'), name = 'logout_url'),  # -16d
     path('logout/', views.logout_user, name = 'logout_url'),         # -17g
+    path('profile/', views.profile, name = 'profile_url'),           # -18b
 ]

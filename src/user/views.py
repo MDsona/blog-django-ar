@@ -52,3 +52,10 @@ def logout_user(request):                                       # -17f
         'page_title': 'تسجيل الخروج',
     })
 
+
+def profile(request):                                           # -18a
+
+    return render(request, 'user/profile.html', {
+        'page_title': 'الملف الشخصي',
+    })
+
