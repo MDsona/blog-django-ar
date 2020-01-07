@@ -1,6 +1,8 @@
 from django.urls import path                    # -14c
 from . import views                            
 from django.contrib.auth.views import LoginView, LogoutView          # -16a
+from django.conf.urls.static import static                           # -20c
+from django.conf import settings
 
 urlpatterns = [                                        
     path('register/', views.register, name = 'register_url'),        # -14c  , views.function
@@ -9,4 +11,6 @@ urlpatterns = [
     # 17g path('logout/', LogoutView.as_view(template_name='user/logout.html'), name = 'logout_url'),  # -16d
     path('logout/', views.logout_user, name = 'logout_url'),         # -17g
     path('profile/', views.profile, name = 'profile_url'),           # -18b
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    # -20c
+
