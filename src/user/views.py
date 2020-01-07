@@ -4,6 +4,7 @@ from .forms import UserCreationForm, LoginForm                  # -14b, 17b
 from django.contrib import messages                             # -15b
 from django.contrib.auth import authenticate, login, logout     # -17e
 from blog.models import Post                                    # -19a
+from django.contrib.auth.decorators import login_required       # -22a
 
 # Create your views here.
 
@@ -18,7 +19,7 @@ def register(request):                                          # -14b
             new_user.set_password(form.cleaned_data['password1'])   # -15c
             new_user.save()                                         # -15c
             messages.success(request, f'تهانينا {new_user} لقد تمت عملية التسجيل بنجاح') # 15c {username}
-            return redirect('home_url')            # go to index.html
+            return redirect('login_url')            # go to index.html, 
 
     else:
         form = UserCreationForm()
@@ -37,7 +38,7 @@ def login_user(request):                                        # -17b
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home_url')
+            return redirect('profile_url')                       # home_url
         else:
             messages.warning(request, 'خطأ في اسم المستخدم او كلمة المرور')
     
@@ -57,6 +58,7 @@ def logout_user(request):                                       # -17f
     })
 
 
+@login_required(login_url='login_url')                          # -22a
 def profile(request):                                           # -18a
     posts = Post.objects.filter(author=request.user)            # -19a
     return render(request, 'user/profile.html', {
