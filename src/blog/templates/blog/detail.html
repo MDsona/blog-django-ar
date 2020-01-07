@@ -7,7 +7,8 @@
 {% block content %}                     <!--a-->
 
     <div class="border p-3 mb-4">       <!--a-->
-        <img src="{% static 'blog/images/icons-user-profile-male.jpg' %}" 
+        <!-- src="{% static 'blog/images/icons-user-profile-male.jpg' %}" <!-a2 -->
+        <img src="{{post.author.profile.image.url}}"                
             class="img-fluid rounded-circle border" alt="شعار المدونة" width="50px">
         <span class="text-secondary">نشر في {{ post.post_date|date:'d-m-Y' }}</span>
         <h3 class="text-dark"><a href="#">{{ post.title }}</a></h3>

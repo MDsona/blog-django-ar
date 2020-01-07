@@ -12,9 +12,12 @@ def register(request):                                          # -14b
     if request.method == 'POST':                                # -15b
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            messages.success(request, f'تهانينا {username} لقد تمت عملية التسجيل بنجاح')
+            # 15c form.save()
+            new_user = form.save(commit=False)                 # -15c
+            # 15c username = form.cleaned_data['username']
+            new_user.set_password(form.cleaned_data['password1'])   # -15c
+            new_user.save()                                         # -15c
+            messages.success(request, f'تهانينا {new_user} لقد تمت عملية التسجيل بنجاح') # 15c {username}
             return redirect('home_url')            # go to index.html
 
     else:
