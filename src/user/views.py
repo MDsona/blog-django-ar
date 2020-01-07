@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect                   # , re
 from .forms import UserCreationForm, LoginForm                  # -14b, 17b
 from django.contrib import messages                             # -15b
 from django.contrib.auth import authenticate, login, logout     # -17e
+from blog.models import Post                                    # -19a
 
 # Create your views here.
 
@@ -54,8 +55,9 @@ def logout_user(request):                                       # -17f
 
 
 def profile(request):                                           # -18a
-
+    posts = Post.objects.filter(author=request.user)            # -19a
     return render(request, 'user/profile.html', {
         'page_title': 'الملف الشخصي',
+        'posts': posts
     })
 

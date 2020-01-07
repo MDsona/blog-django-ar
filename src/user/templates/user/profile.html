@@ -15,9 +15,9 @@
             </div>
         </div>
         <div class="col-md-9">
-            <h3 class="mb-3">اسم المستخدم</h3>
-            <p class="font-weight-bold">الأسم : <span class="font-weight-normal">محمد سونا علي</span></p>
-            <p class="font-weight-bold">البريد الالكتروني : <span class="font-weight-normal">email@e.com</span></p>
+            <h3 class="mb-3">{{user.username}}</h3>
+            <p class="font-weight-bold">الأسم : <span class="font-weight-normal">{{user.first_name}} {{user.last_name}}</span></p>
+            <p class="font-weight-bold">البريد الالكتروني : <span class="font-weight-normal">{{user.email}}</span></p>
         </div>
     </div>
 </div>
@@ -25,22 +25,25 @@
 <div class="row mb-4">
     <div class="col-md">
         <h3 class="border-bottom pb-3 mb-3">عدد التدوينات التي دونتها</h3>
-        <h4 class="bg-secondary text-center text-light p-3">21</h4>
+        <h4 class="bg-secondary text-center text-light p-3">{{posts.count}}</h4>
+
         <h3 class="border-bottom mb-3 pb-3 mt-3">تدويناتي</h3>
+        {% for post in posts %}
         <ul class="pr-2">
-            <a href="#">عنوان التدوينة</a>
+            <a href="{% url 'detail_url' post.id %}">{{ post.title }}</a>
         </ul>
-        <ul class="pr-2">
-            <a href="#">عنوان التدوينة</a>
-        </ul>
-        <ul class="pr-2">
-            <a href="#">عنوان التدوينة</a>
-        </ul>
+        {% empty %}
+        <h4 class="text-center mb-4">لا توجد تدوينات</h4>
+        {% endfor %}
+
+        {% if posts.count >= 10 %}
         <div class="border-top pt-3 mt-3 text-center">
             <a href="#" class="btn btn-secondary bg-secondary">التالي</a>
             <span class="pr-4 pl-4">صفحة 2 من 8</span>
             <a href="#" class="btn btn-secondary bg-secondary">السابق</a>
         </div>
+        {% endif %}
+
     </div>
 </div>
 
