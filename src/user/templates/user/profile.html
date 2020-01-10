@@ -28,7 +28,7 @@
         <h4 class="bg-secondary text-center text-light p-3">{{posts.count}}</h4>
 
         <h3 class="border-bottom mb-3 pb-3 mt-3">تدويناتي</h3>
-        {% for post in posts %}
+        {% for post in post_list %}                                         <!--d-->
         <ul class="pr-2">
             <a href="{% url 'detail_url' post.id %}">{{ post.title }}</a>
         </ul>
@@ -43,6 +43,8 @@
             <a href="#" class="btn btn-secondary bg-secondary">السابق</a>
         </div>
         {% endif %} -->
+
+        {% include 'blog/pagination.html' with page=post_list %}            <!--d-->
 
     </div>
 </div>

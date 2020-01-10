@@ -5,6 +5,7 @@ from django.contrib import messages                             # -15b
 from django.contrib.auth import authenticate, login, logout     # -17e
 from blog.models import Post                                    # -19a
 from django.contrib.auth.decorators import login_required       # -22a
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage  # - 25a
 
 # Create your views here.
 
@@ -61,8 +62,19 @@ def logout_user(request):                                       # -17f
 @login_required(login_url='login_url')                          # -22a
 def profile(request):                                           # -18a
     posts = Post.objects.filter(author=request.user)            # -19a
+    post_list = Post.objects.filter(author=request.user)        # -25a
+    paginator = Paginator(post_list, 5)                             # -25a
+    page = request.GET.get('page')
+    try:                                                        # -25a
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_page)
     return render(request, 'user/profile.html', {
         'page_title': 'الملف الشخصي',
-        'posts': posts
+        'posts': posts,
+        'page': page,                                            # -25a
+        'post_list': post_list,
     })
 
