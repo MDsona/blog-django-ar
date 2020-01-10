@@ -17,7 +17,7 @@
 
 {% for post in posts %}                 <!--b-->
     <div class="border p-3 mb-4">
-        <!-- src="{% static 'blog/images/icons-user-profile-male.jpg' %}" <!-d2  -->   
+        <!-- src="{% static 'blog/images/icons-user-profile-male.jpg' %}" <!-d2     -->
         <img src="{{post.author.profile.image.url}}" 
             class="img-fluid rounded-circle border" alt="صورة الناشر" width="50px">
         <span class="text-secondary">نشر في {{ post.post_date|date:'d-m-Y' }}</span> <!-- filter|date -->
@@ -25,6 +25,9 @@
         <p>{{ post.content }}</p>
     </div>
 {% endfor %}
+
+{# include 'blog/pagination.html' #}                   <!--d-->
+{% include 'blog/pagination.html' with page=posts %}        <!--d2-->
 
 {% endblock content %}
 

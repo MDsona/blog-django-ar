@@ -1,0 +1,22 @@
+
+<!-- <div class="mb-3 text-center">                      a
+    <a href="#" class="btn btn-secondary bg-secondary">التالي</a>
+    <span class="pr-4 pl-4">صفحة 2 من 8</span>
+    <a href="#" class="btn btn-secondary bg-secondary">السابق</a>
+</div> -->
+
+<div class="mb-3 text-center">                      <!--b-->
+    {% if page.has_next %}
+    <a href="?page={{page.next_page_number}}" class="btn btn-secondary bg-secondary">التالي</a>
+    {% else %}
+    <a href="#" class="btn btn-secondary bg-secondary disabled">التالي</a>
+    {% endif %}
+
+    <span class="pr-4 pl-4">صفحة {{page.number}} من {{page.paginator.num_pages}}</span>
+
+    {% if page.has_previous %}
+    <a href="?page={{page.previous_page_number}}" class="btn btn-secondary bg-secondary">السابق</a>
+    {% else %}
+    <a href="#" class="btn btn-secondary bg-secondary disabled">السابق</a>
+    {% endif %}
+</div>
