@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404          # -7b : add 404
 
 from .models import Post, Comment                              # -6a, -8d
-from .forms import NewComment                                   # -9b
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage  # - 24a
+from .forms import NewComment, PostCreateForm                  # -9b, -27f
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage  # -24a
+from django.views.generic import CreateView                               # -27a 
+from django.contrib.auth.mixins import LoginRequiredMixin                 # -27g
 
 # Create your views here.
 
@@ -80,6 +82,18 @@ def post_detail(request, post_id):                          # -7a
 
     return render(request, 'blog/detail.html', context)
 
+
+
+class PostCreateView(LoginRequiredMixin, CreateView):        # -27a
+    model = Post
+    # 27f fields = ['title', 'content']
+    template_name = 'blog/new_post.html'
+    form_class = PostCreateForm                             # -27f
+
+    def form_valid(self, form):                             # -27c
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
 
 
 

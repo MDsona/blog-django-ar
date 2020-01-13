@@ -2,6 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import User                        # -5a
 from django.utils import timezone
+from django.urls import reverse                                    # -27e
 
 # Create your models here.
 
@@ -14,6 +15,10 @@ class Post(models.Model):                                           # -5a
 
     def __str__(self):                                              # -5c
         return self.title
+
+    def get_absolute_url(self):                                     # -27d
+        # e return '/detail/{}'.format(self.pk)
+        return reverse('detail_url', args=[self.pk])
 
     class Meta:                                                     # -6b
         ordering = ('-post_date', )
