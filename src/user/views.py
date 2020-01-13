@@ -78,7 +78,7 @@ def profile(request):                                           # -18a
         'post_list': post_list,
     })
 
-
+@login_required(login_url='login_url')                          # -26e
 def profile_update(request):                                    # -26b
     # 26d user_form = UserUpdateForm(instance=request.user)
     # 26d profile_form = ProfileUpdateForm(instance=request.user.profile)

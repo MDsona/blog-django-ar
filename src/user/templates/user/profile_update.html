@@ -11,7 +11,18 @@
         {% csrf_token %}
 
         {{user_form|crispy}}
-        {{profile_form|crispy}}
+
+        <!-- b {{profile_form|crispy}}   >><<  -->
+
+        <div>                                           <!--b-->
+            <span>صورة الملف الشخصي *</span>
+            <br>
+            الصورة الحالية : <a href="{{user.profile.image.url}}">{{user.profile.image}}</a>
+            <br>
+            <label for="image" class="btn btn-outline-secondary mt-2">اختيار صورة</label>
+            <input type="file" name="image" id="image" accept="image/*" style="display: none;">
+        </div>
+
         <input class="btn btn-secondary mt-3" type="submit" value="تعديل">
     </form>
 </div>
