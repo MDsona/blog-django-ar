@@ -3,8 +3,8 @@ from django.shortcuts import render, get_object_or_404          # -7b : add 404
 from .models import Post, Comment                              # -6a, -8d
 from .forms import NewComment, PostCreateForm                  # -9b, -27f
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage  # -24a
-from django.views.generic import CreateView                               # -27a 
-from django.contrib.auth.mixins import LoginRequiredMixin                 # -27g
+from django.views.generic import CreateView, UpdateView                   # -27a, 28a 
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin # -27g, 28d
 
 # Create your views here.
 
@@ -93,7 +93,24 @@ class PostCreateView(LoginRequiredMixin, CreateView):        # -27a
     def form_valid(self, form):                             # -27c
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+
+class PostUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):        # -28a, 28d
+    model = Post
+    template_name = 'blog/new_post.html'
+    form_class = PostCreateForm                             
+
+    def form_valid(self, form):                             
+        form.instance.author = self.request.user
+        return super().form_valid(form)
     
+    def test_func(self):                                # -28d
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
 
 
 
