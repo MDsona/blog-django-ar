@@ -98,7 +98,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):        # -27a
 
 class PostUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):        # -28a, 28d
     model = Post
-    template_name = 'blog/new_post.html'
+    template_name = 'blog/post_update.html'
     form_class = PostCreateForm                             
 
     def form_valid(self, form):                             
