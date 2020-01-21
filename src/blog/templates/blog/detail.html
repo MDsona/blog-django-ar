@@ -15,7 +15,7 @@
         {% if post.author == user %}                        <!--d2-->
         <div class="form-group btn_editing">                <!--d-->
             <a class="btn btn-secondary" href="{% url 'post_update_url' post.id %}">تحرير</a>
-            <button class="btn btn-danger">حذف</button>
+            <a class="btn btn-danger" href="{% url 'post_delete_url' post.id %}">حذف</a>
         </div>
         {% endif %}
         <h3 class="text-dark"><a href="#">{{ post.title }}</a></h3>
